@@ -19,24 +19,44 @@ library(tidyverse)
 ## Problem 1
 
 ```{r}
-ggplot(data = iris) +
+ggplot(iris) +
     geom_histogram(aes(x = Sepal.Length), bins = 8,
                    fill = "blue",
                    color = "green") +
     labs(title = "Sepal Length Distribution", x = "Sepal Length")
-ggplot(data = iris) +
+ggplot(iris) +
     geom_histogram(aes(x = Sepal.Width), bins = 8,
                    fill = "red",
                    color = "blue") +
     labs(title = "Sepal Width Distribution", x = "Sepal Width")
 ```
-The two variations are relatively the same.
+
+The sepal length distribution is a bit more spread out while the sepal width tends to hug the 3cm mark.
 
 ## Problem 2
 
 ```{r}
-iris %>%
-    ggplot() +
-    geom_boxplot(aes( x = Species, y = Sepal.Length))
+ggplot(iris) +
+    geom_boxplot(aes(x = Sepal.Length, y = Species, fill = "Length")) +
+    geom_boxplot(aes(x = Sepal.Width, y = Species, shape = "width"), 
+                 fill = "green", color = "red") +
+    labs(title = "Sepal Length and Width Dist. based on Species", 
+         x = "Length", shape = "", fill = "")
 ```
 
+Yes the covariation can explain the pattern seen in the previous problem. As you can see the distributions for length tend to be wider and around 6cm while the width distributions tend to be tighter and around the 3cm mark.
+
+## Problem 3
+
+```{r}
+iris %>%
+    filter(Species == "virginica") %>%
+    ggplot() +
+    geom_histogram(aes(x = Sepal.Width), bins = 8,
+                   fill = "blue",
+                   color = "green") +
+    labs(title = "Sepal Width Distribution (Virginica only)", 
+          x = "Sepal Width")
+```
+
+This distribution is similar to previous width distributions with a few extas near the 4cm mark.

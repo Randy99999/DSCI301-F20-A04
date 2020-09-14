@@ -1,0 +1,42 @@
+---
+title: "Assignment 4"
+author: "Randy Nuhfer"
+date: "9/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Library loading...
+
+```{r}
+library(tidyverse)
+```
+
+
+## Problem 1
+
+```{r}
+ggplot(data = iris) +
+    geom_histogram(aes(x = Sepal.Length), bins = 8,
+                   fill = "blue",
+                   color = "green") +
+    labs(title = "Sepal Length Distribution", x = "Sepal Length")
+ggplot(data = iris) +
+    geom_histogram(aes(x = Sepal.Width), bins = 8,
+                   fill = "red",
+                   color = "blue") +
+    labs(title = "Sepal Width Distribution", x = "Sepal Width")
+```
+The two variations are relatively the same.
+
+## Problem 2
+
+```{r}
+iris %>%
+    ggplot() +
+    geom_boxplot(aes( x = Species, y = Sepal.Length))
+```
+

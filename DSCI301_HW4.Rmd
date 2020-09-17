@@ -33,6 +33,10 @@ ggplot(iris) +
 
 The sepal length distribution is a bit more spread out while the sepal width tends to hug the 3cm mark.
 
+<span style="color: green; font-size: 14pt">*Comments:*  
+    Nice graphs--and a reasonable discussion.    
+</span>
+
 ## Problem 2
 
 ```{r}
@@ -43,6 +47,10 @@ ggplot(iris) +
     labs(title = "Sepal Length and Width Dist. based on Species", 
          x = "Length", shape = "", fill = "")
 ```
+
+<span style="color: green; font-size: 14pt">*Comments:*  
+Box plots are a good way to look at this, but I wouldn't put length and width on the same graph--these are not necessarily readily comparable.
+</span>
 
 Yes the covariation can explain the pattern seen in the previous problem. As you can see the distributions for length tend to be wider and around 6cm while the width distributions tend to be tighter and around the 3cm mark.
 
